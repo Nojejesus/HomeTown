@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hometown-eureka
+
+server:
+  port: 8000
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 是否从其他 Eureka Server 获取注册信息，默认为true；当前只配置单点 Eureka Server，不需要获取其他 Eureka Server节点
+    fetch-registry: false
+    # 是否将当前 Eureka Sever 注册到其他 Eureka Server 节点，默认为true；当前配置为单点 Eureka Server
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
